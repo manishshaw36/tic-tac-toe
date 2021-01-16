@@ -1,0 +1,47 @@
+.main-menu {
+    padding: 20px 15px;
+	max-width: 660px;
+    margin: auto;
+    >.image-box {
+        display: flex;
+        gap: 20;
+        margin: 50px auto;
+        width: 100%;
+        >div {
+            position: relative;
+            width: 100%;
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            &.cross-img img {
+                transform: scale(0.7);
+            }
+            &:after{
+                content: '';
+                display: block;
+                padding-bottom: 100%;
+            }
+        }
+    }
+    >.play-type {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .btn {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 20px 0;
+            width: 50%;
+            font-size: 1.2em;
+            margin: 20px auto;
+            cursor: pointer;
+            &:hover, &:focus {
+                background-color: rgb(14, 10, 238);
+                color: white;
+            }
+        }
+    }
+}

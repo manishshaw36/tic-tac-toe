@@ -1,0 +1,63 @@
+.icon-choose {
+    padding: 20px 15px;
+	max-width: 660px;
+    margin: 30px auto;
+    >.image-box {
+        display: flex;
+        gap: 20;
+        margin: 50px auto;
+        width: 100%;
+        >div {
+            position: relative;
+            width: 100%;
+            cursor: pointer;
+            opacity: 0.5;
+            &.selected {
+                opacity: 1;
+            }
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            input {
+                height: 30px;
+                width: 30px;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                cursor: pointer;
+                margin-top: 30px; 
+            }
+            &.cross-img img {
+                transform: scale(0.7);
+            }
+            &:after{
+                content: '';
+                display: block;
+                padding-bottom: 100%;
+                margin-bottom: 30px;
+            }
+        }
+    }
+    >.play-type {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .btn {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 20px 0;
+            width: 50%;
+            font-size: 1.2em;
+            margin: 20px auto;
+            cursor: pointer;
+            &:hover, &:focus {
+                background-color: rgb(14, 10, 238);
+                color: white;
+            }
+        }
+    }
+}

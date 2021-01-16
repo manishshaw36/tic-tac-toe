@@ -6,7 +6,7 @@ import MainMenu from '../main-menu/main-menu.component';
 import IconChoose from '../icon-choose/icon-choose.component';
 import { GAME_TYPES } from '../../shared/utils/utils';
 
-function App(props: any) {
+function App() {
   return (
     <AppContext.Consumer>
       {(context: any) => {

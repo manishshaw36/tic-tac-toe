@@ -89,13 +89,13 @@ export const findRandomMove = (cells: any[]) => {
 /**
  * Find best move based on Minimax algorithm
  */
-const evaluate = (cells: any[], computerType: number) => {
+const evaluate = (cells: any[], computerIconType: number) => {
 
     for (let i = 0; i < WiningLines.length; i++) {
         const [a, b, c] = WiningLines[i];
 
         if (cells[a] !== null && cells[a] === cells[b] && cells[a] === cells[c]) {
-            if (cells[a] === computerType) return 10;
+            if (cells[a] === computerIconType) return 10;
             return -10;
         }
     }
@@ -103,8 +103,8 @@ const evaluate = (cells: any[], computerType: number) => {
     return 0;
 }
 
-const minimax = (cells: any[], depth: number, computerType: number, isMax: boolean) => {
-    const score: number = evaluate(cells, computerType);
+const minimax = (cells: any[], depth: number, computerIconType: number, isMax: boolean) => {
+    const score: number = evaluate(cells, computerIconType);
 
     // If Maximizer has won the game return his/her evaluated score 
     if (score === 10) return score - depth;
@@ -127,10 +127,10 @@ const minimax = (cells: any[], depth: number, computerType: number, isMax: boole
 
             if (cell === null) {
                 // Make a move
-                const nextCells = replace(cells, i, computerType);
+                const nextCells = replace(cells, i, computerIconType);
 
                 // Call minimax recursively and choose the maximum value
-                best = Math.max(best, minimax(nextCells, depth + 1, computerType, !isMax));
+                best = Math.max(best, minimax(nextCells, depth + 1, computerIconType, !isMax));
             }
         }
     } else {
@@ -141,10 +141,10 @@ const minimax = (cells: any[], depth: number, computerType: number, isMax: boole
 
             if (cell === null) {
                 // Make a move
-                const nextCells = replace(cells, i, 1 - computerType);
+                const nextCells = replace(cells, i, 1 - computerIconType);
 
                 // Call minimax recursively and choose the minimum value
-                best = Math.min(best, minimax(nextCells, depth + 1, computerType, !isMax));
+                best = Math.min(best, minimax(nextCells, depth + 1, computerIconType, !isMax));
             }
         }
     }
@@ -152,7 +152,7 @@ const minimax = (cells: any[], depth: number, computerType: number, isMax: boole
     return best;
 }
 
-export const findBestMove = (cells: any[], computerType: number) => {
+export const findBestMove = (cells: any[], computerIconType: number) => {
     let bestVal = -1000;
     let bestMove = null;
 
@@ -163,10 +163,10 @@ export const findBestMove = (cells: any[], computerType: number) => {
 
         if (cell === null) {
             // Make a move
-            const nextCells = replace(cells, i, computerType);
+            const nextCells = replace(cells, i, computerIconType);
 
             // Compute evaluation function for this move. 
-            const moveVal = minimax(nextCells, 0, computerType, false);
+            const moveVal = minimax(nextCells, 0, computerIconType, false);
 
             // If the value of the current move is more than the best value, then update best
             if (moveVal > bestVal) {
